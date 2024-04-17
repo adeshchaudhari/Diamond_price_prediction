@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<style>
+    input[type=text],
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+
+<body>
+
+    <h3>Diamond Price Prediction Form</h3>
+
+    <div>
+        <form method="POST" action="{% url 'calc_price' %}">
+
+            {% csrf_token %}
+
+            <label>Enter diamond carat: </label>
+            <p><input type="text" name="carat" placeholder="For eg: 0.24"/></p>
+
+            <label>Cut</label>
+            <select name="cut">
+                <option value="2">Ideal</option>
+                <option value="3">Premium</option>
+                <option value="4">Very Good</option>
+                <option value="1">Good</option>
+                <option value="0">Fair</option>
+            </select>
+
+            <label>Color</label>
+            <select name="color">
+                <option value="3">G</option>
+                <option value="1">E</option>
+                <option value="2">F</option>
+                <option value="4">H</option>
+                <option value="0">D</option>
+                <option value="5">I</option>
+                <option value="6">J</option>
+            </select>
+
+            <label>Clarity</label>
+            <select name="clarity">
+                <option value="2">SI1</option>
+                <option value="5">VS2</option>
+                <option value="3">SI2</option>
+                <option value="4">VS1</option>
+                <option value="7">VVS2</option>
+                <option value="6">VVS1</option>
+                <option value="1">IF</option>
+                <option value="0">I1</option>
+            </select>
+
+            <label>Enter diamond depth: </label>
+            <input type="text" name="depth" placeholder="For eg: 61.5">
+
+            <label>Enter diamond table: </label>
+            <input type="text" name="table" placeholder="For eg: 55">
+
+            <label>Enter diamond length(mm): </label>
+            <input type="text" name="x" placeholder="For eg: 4.20">
+
+            <label>Enter diamond width(mm): </label>
+            <input type="text" name="y" placeholder="For eg: 4.23">
+
+            <label>Enter diamond depth(mm): </label>
+            <input type="text" name="z" placeholder="For eg: 2.63">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+
+</html>
